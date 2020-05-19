@@ -1,4 +1,4 @@
-//sudo tcpdump -i lo udp port 8081 -XX -vvv          sudo tcpdump udp port 8081 -XX -vvv 
+//sudo tcpdump -i lo udp port 8081 -XX -vvv   sudo tcpdump udp port 8081 -XX -vvv ///  sudo tcpdump -i lo udp port 8082 -XX -vvv
 #include <malloc.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -53,8 +53,8 @@ int main(int argc, char *argv[])
     udp_h = (struct udphdr*)(packet+sizeof(struct iphdr));
 
     ip_h->ihl = 5;
-	ip_h->version = 4;
-	ip_h->tos = 0;
+	  ip_h->version = 4;
+	  ip_h->tos = 0;
     ip_h->tot_len = htons(sizeof(struct udphdr) + strlen(massage) + 1);
     ip_h->id = htons(11111);
     ip_h->frag_off = 0;
